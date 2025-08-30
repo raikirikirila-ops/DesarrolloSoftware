@@ -3,6 +3,13 @@ body {
   font-family: Arial, sans-serif;
   background: #f7f7f7;
 }
+.tabla td {
+  width:100vh;
+  text-align:center;
+}
+table{
+  background: #64e943;
+}
 
 #root {
   height: 100vh;
