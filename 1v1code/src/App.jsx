@@ -13,7 +13,7 @@ function App() {
         <button className="botoncenter" onClick={() => setSection("user")}>Ver perfil</button>
       </section>
       <section style={{ display: section === "code" ? "block" : "none" }}>
-        <CodeEditor />
+        <CodeEditor setSection={setSection} />
       </section>    
       <section style={{ display: section === "user" ? "block" : "none" }}>
         
