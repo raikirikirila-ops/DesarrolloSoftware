@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CodeEditor from './CodeEditor';
+import Profile from './Profile';
 import './App.css';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <CodeEditor setSection={setSection} />
       </section>    
       <section style={{ display: section === "user" ? "block" : "none" }}>
-        
+        <Profile/>
       </section>    
       </>
   );
