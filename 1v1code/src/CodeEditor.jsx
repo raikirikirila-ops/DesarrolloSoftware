@@ -51,17 +51,15 @@ const CodeEditor = ({ setSection }) => {
       </body>
     </html>
   `;
-console.log(css)
+
   return (
     <>
-    
       <div className="navbar">
         <button className="icon" onClick={() => setSection("home")}>0
-       <img src="https://imgs.search.brave.com/s-aZ6fzJ9UnDlpvQuPkQI1XUk3k5BcbO7ERREVFb2l8/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvNTg3NC81ODc0/MTE3LnBuZw" alt="" />
+          <img src="https://imgs.search.brave.com/s-aZ6fzJ9UnDlpvQuPkQI1XUk3k5BcbO7ERREVFb2l8/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvNTg3NC81ODc0/MTE3LnBuZw" alt="" />
         </button>
-        </div>
+      </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
-        {/* Editor */}
         <div>
           <h3>HTML</h3>
           <textarea value={html} onChange={(e) => setHtml(e.target.value)} rows={6} cols={40} />
@@ -73,7 +71,6 @@ console.log(css)
           <textarea value={js} onChange={(e) => setJs(e.target.value)} rows={6} cols={40} />
         </div>
 
-        {/* Vista previa del usuario */}
         <div>
           <h3>Preview</h3>
           <iframe
@@ -84,7 +81,6 @@ console.log(css)
           />
         </div>
 
-        {/* Expected */}
         <div>
           <h3>Respuesta Esperada</h3>
           <iframe

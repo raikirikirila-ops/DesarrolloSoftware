@@ -1,7 +1,7 @@
-import { useState } from "react";
-import './Profile.css';
+import { useState, useEffect } from "react";
+import './JSgame.css';
 
-export default function Profile() {
+const JSgame = ({ setSection }) =>{
   const [js, setJs] = useState(`barco gray (12 , 14) vertical 2`);
   const [hintVisible, setHintVisible] = useState(false);
   const [resultVisible, setResultVisible] = useState(false);
@@ -9,9 +9,8 @@ export default function Profile() {
   const filas = 15;
   const columnas = 15;
 
-  // -------------------------
-  // MATRIZ PREESTABLECIDA (Expected)
-  // -------------------------
+  // EXPECTED
+
   const expected = Array.from({ length: filas + 1 }, () =>
     Array.from({ length: columnas + 1 }, () => "lightblue")
   );
@@ -20,9 +19,9 @@ export default function Profile() {
   expected[12][4] = "black";
   expected[12][5] = "black";
 
-  // -------------------------
-  // MATRIZ DEL USUARIO (Preview)
-  // -------------------------
+  
+  // PREVIEW
+
   const preview = Array.from({ length: filas + 1 }, () =>
     Array.from({ length: columnas + 1 }, () => "lightblue")
   );
@@ -52,9 +51,8 @@ export default function Profile() {
     }
   });
 
-  // -------------------------
   // FUNCIONES
-  // -------------------------
+
   const handleHint = () => setHintVisible(!hintVisible);
   const handleFinish = () => setResultVisible(!resultVisible);
 
@@ -64,9 +62,8 @@ export default function Profile() {
 
   const blockSize = 18;
 
-  // -------------------------
-  // COMPONENTE BOARD CON NUMEROS
-  // -------------------------
+  // BOARD
+
   function Board({ matrix, blockSize }) {
     return (
       <table
@@ -76,7 +73,6 @@ export default function Profile() {
         }}
       >
         <tbody>
-          {/* Fila superior: números de columna */}
           <tr>
             <td style={{ width: blockSize, height: blockSize }}></td>
             {Array.from({ length: columnas }, (_, j) => (
@@ -97,10 +93,8 @@ export default function Profile() {
             ))}
           </tr>
 
-          {/* Filas del tablero */}
           {matrix.slice(1).map((fila, i) => (
             <tr key={i}>
-              {/* Número de fila */}
               <td
                 style={{
                   width: blockSize,
@@ -133,8 +127,13 @@ export default function Profile() {
   }
 
   return (
+    <>
+    <div className="navbar">
+        <button className="icon" onClick={() => setSection("home")}>0
+          <img src="https://imgs.search.brave.com/s-aZ6fzJ9UnDlpvQuPkQI1XUk3k5BcbO7ERREVFb2l8/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvNTg3NC81ODc0/MTE3LnBuZw" alt="" />
+        </button>
+      </div>
     <div style={{ display: "flex", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-      {/* Input y botones */}
       <div style={{ minWidth: 320, maxWidth: 320 }}>
         <h3>JS Input</h3>
         <textarea
@@ -162,7 +161,6 @@ export default function Profile() {
         )}
       </div>
 
-      {/* Tableros */}
       <div style={{ display: "flex", gap: 10 }}>
         <div>
           <h3>Preview</h3>
@@ -175,5 +173,7 @@ export default function Profile() {
         </div>
       </div>
     </div>
+    </>
   );
 }
+export default JSgame;
