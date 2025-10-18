@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import CodeEditor from './CodeEditor';
+import Profile from './Profile';
 import JSgame from './JSgame';
 import './App.css';
 
@@ -15,15 +16,18 @@ function App() {
       </section>
       <section style={{ display: section === "mode" ? "block" : "none" }}>
         <h2>Selecciona un modo de juego</h2>
-        <button className="botoncenter" onClick={() => setSection("user")}>JS game</button>
+        <button className="botoncenter" onClick={() => setSection("js")}>JS game</button>
         <button className="botoncenter" onClick={() => setSection("code")}>CSS game</button>
         <button className="botoncenter" onClick={() => setSection("home")}>Volver</button>
       </section>
       <section style={{ display: section === "code" ? "block" : "none" }}>
         <CodeEditor setSection={setSection} />
       </section>
-      <section style={{ display: section === "user" ? "block" : "none" }}>
+      <section style={{ display: section === "js" ? "block" : "none" }}>
         <JSgame setSection={setSection} />
+      </section>
+      <section style={{ display: section === "user" ? "block" : "none" }}>
+        <Profile setSection={setSection} />
       </section>
     </>
   );
