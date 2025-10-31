@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import './CodeEditor.css';
+import Timer from './Timer';
+
 const CodeEditor = () => {
   const [html, setHtml] = useState(`<h1>Hola mundo</h1>`);
   const [css, setCss] = useState(`h1 { color: teal; }body{  color:#fffacd;}`);
@@ -53,9 +55,23 @@ const CodeEditor = () => {
     </html>
   `;
 
+  const handleFinishTimer = (totalSeconds) => {
+    console.log(`Tiempo total: ${totalSeconds} segundos`);
+  };
+
   return (
     <>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12,marginTop: "80px" }}>
+      <div style={{ 
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        padding: "10px 0",
+        marginTop: "60px"
+      }}>
+        <Timer onFinish={handleFinishTimer} />
+      </div>
+      
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginTop: "20px" }}>
         <div>
           <h3>HTML</h3>
           <textarea value={html} onChange={(e) => setHtml(e.target.value)} rows={6} cols={40} />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import './JSgame.css';
+import Timer from './Timer';
 
 const JSgame = () => {
   const [js, setJs] = useState(`barco gray (12 , 14) vertical 2`);
@@ -127,9 +128,24 @@ const JSgame = () => {
     );
   }
 
+  const handleFinishTimer = (totalSeconds) => {
+    console.log(`Tiempo total: ${totalSeconds} segundos`);
+    handleFinish(); // Automáticamente muestra el resultado cuando se finaliza el tiempo
+  };
+
   return (
     <>
-      <div style={{ display: "flex", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+      <div style={{ 
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        padding: "10px 0",
+        marginTop: "60px"
+      }}>
+        <Timer onFinish={handleFinishTimer} />
+      </div>
+      
+      <div style={{ display: "flex", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: "20px" }}>
         <div style={{ minWidth: 320, maxWidth: 320 }}>
           <h3>JS Input</h3>
           <textarea
